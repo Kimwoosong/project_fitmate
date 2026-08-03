@@ -58,6 +58,7 @@ public class SecurityConfig {
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http)
                         throws Exception {
+                String redirectUrl = frontServerURL.startsWith("http") ? frontServerURL : "http://" + frontServerURL;
                 http.csrf(
                                 csrf -> csrf.disable())
                                 .authorizeHttpRequests(authorize -> authorize
@@ -78,7 +79,7 @@ public class SecurityConfig {
                                 .oauth2Login(oauth2 -> oauth2.userInfoEndpoint(
                                                 userInfo -> userInfo.userService(customDefaultOAuth2UserService))
                                                 .successHandler(customOAuth2SuccessHandler)
-                                                .failureUrl(frontServerURL + "/login?error=true"))
+                                                .failureUrl(redirectUrl + "/login?error=true"))
                                 .addFilterBefore(new JWTFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
                                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil,
                                                 objectMapper, redisTemplate),
