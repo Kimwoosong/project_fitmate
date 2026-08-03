@@ -75,10 +75,10 @@ public class SecurityConfig {
                                 .logout(logout -> logout.disable()) //기존 로그아웃방식 비활성화
                                 .sessionManagement(session -> session
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                                .oauth2Login(oauth2 -> oauth2.loginPage("/auth/login").userInfoEndpoint(
+                                .oauth2Login(oauth2 -> oauth2.userInfoEndpoint(
                                                 userInfo -> userInfo.userService(customDefaultOAuth2UserService))
                                                 .successHandler(customOAuth2SuccessHandler)
-                                                .failureUrl("/login?error"))
+                                                .failureUrl("/login?error=true"))
                                 .addFilterBefore(new JWTFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
                                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil,
                                                 objectMapper, redisTemplate),
