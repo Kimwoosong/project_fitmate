@@ -33,7 +33,7 @@ public class MemberController {
     private final ReservationService reservationService;
 
     @PostMapping("/join")
-    public ResponseEntity<?> join(@RequestBody MemberDto memberDto){
+    public ResponseEntity<?> join(MemberDto memberDto){
         // 회원가입 비즈니스 로직 실행
         memberService.insertMember(memberDto);
 
@@ -95,7 +95,7 @@ public class MemberController {
 
     //이메일체크 api
     @PostMapping("/email")
-    public ResponseEntity<?> emailCheck(@RequestBody MemberDto memberDto){
+    public ResponseEntity<?> emailCheck(MemberDto memberDto){
         if(memberService.emailCheck(memberDto.getUserEmail())){
             return ResponseEntity.ok("no");
         }else{
