@@ -78,7 +78,7 @@ public class SecurityConfig {
                                 .oauth2Login(oauth2 -> oauth2.loginPage("/auth/login").userInfoEndpoint(
                                                 userInfo -> userInfo.userService(customDefaultOAuth2UserService))
                                                 .successHandler(customOAuth2SuccessHandler)
-                                                .failureUrl(frontServerURL + "/login?error"))
+                                                .failureUrl("/login?error"))
                                 .addFilterBefore(new JWTFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
                                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil,
                                                 objectMapper, redisTemplate),
