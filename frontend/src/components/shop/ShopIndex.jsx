@@ -54,12 +54,14 @@ const ShopIndex = () => {
 
   //인기 상품 TOP 8 조회
   useEffect(() => {
+    console.log("useEffect 실행");
     const getTopProducts = async () => {
       try {
         const res = isLogin
           ? await jwtAxios.get(`${API_URL}/api/product/top-sales`)
           : await axios.get(`${API_URL}/api/product/top-sales`);
-
+          console.log(res.data);
+          console.log(res.data.length)
         setProducts(res?.data || []);
       } catch (err) {
         console.error("인기 상품 조회 실패:", err?.response?.data || err?.message || err);
@@ -182,15 +184,14 @@ const ShopIndex = () => {
 
           <div className="shopIndex-bottom-productList">
             {products.slice(0, 8).map((product) => {
-              const thumbnail = product.productFileDtos?.find(
+              const thumbnail = product.fileDtos?.find(
                 (file) => file.imageType === "THUMBNAIL"
-              )?.newFileName;
-
+              );
               return (
                 <div className="product-card" key={product.id} onClick={() => navigate(`/products/detail/${product.id}`)}>
                   <div className="product-thumb-container">
                     <img
-                      src={thumbnail ? `${API_SERVER_URL}${thumbnail}` : "/images/no-image.png"}
+                      src={thumbnail ? `${API_SERVER_URL}/upload/product/${thumbnail.newFileName}` : "/images/no-image.png"}
                       alt={product.productName}
                     />
                     <div className="product-hover-actions">

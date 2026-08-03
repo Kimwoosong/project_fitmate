@@ -9,9 +9,9 @@ package org.spring.backend.member.enumtype;
         //product 카테고리
         public String getProductCategory() {
             return switch (this) {
-                case DIET -> "다이어트";
-                case WORKOUT -> "헬스장";
-                case HEALTH -> "PT";
+                case DIET -> "식품";
+                case WORKOUT -> "운동기구";
+                case HEALTH -> "식품";
             };
         }
 
@@ -19,8 +19,8 @@ package org.spring.backend.member.enumtype;
         public String getCommunityTabName() {
             return switch (this) {
                 case DIET -> "자유게시판";
-                case WORKOUT -> "자유게시판";
-                case HEALTH -> "자유게시판";
+                case WORKOUT -> "운동게시판";
+                case HEALTH -> "운동게시판";
             };
         }
     }

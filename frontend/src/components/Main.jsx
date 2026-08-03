@@ -26,7 +26,9 @@ const Main = () => {
   const [bestTab, setBestTab] = useState("추천");
   const [defaultCommunityList, setDefaultCommunityList] = useState([]);
   const [communityList, setCommunityList] = useState([]);
+
   const [productList, setProductList] = useState([]);
+
   const [noticeList, setNoticeList] = useState([]);
   const [popupList, setPopupList] = useState([]);
   const [myMembership, setMyMembership] = useState([]);
@@ -81,24 +83,35 @@ const Main = () => {
   const getMainData = async () => {
     try {
       const res = isLogin
-        ? await jwtAxios.get(`${API_URL}/api/product/top-sales`)
-        : await axios.get(`${API_URL}/api/product/top-sales`);
+        ? await jwtAxios.get(`${API_URL}/api/main`)
+        : await axios.get(`${API_URL}/api/main`);
 
-      //선택한 탭 별 커뮤니티 리스트
-      const mainCommunityList = res.data.communityList || [];
+      // 커뮤니티 리스트
+      const mainCommunityList = Array.isArray(res.data.communityList)
+        ? res.data.communityList
+        : [];
 
       setCommunityList(mainCommunityList);
       setDefaultCommunityList(mainCommunityList);
 
-      //상품 리스트
-      setProductList(res.data || []);
-      //공지사항 리스트
-      setNoticeList(res.data.noticeList || []);
+      // 백엔드에서 조합한 최종 상품 최대 8개
+      const mainProductList = Array.isArray(res.data.productList)
+        ? res.data.productList
+        : [];
 
-      //팝업 관련
+      setProductList(mainProductList.slice(0, 8));
+
+      // 공지사항
+      setNoticeList(
+        Array.isArray(res.data.noticeList) ? res.data.noticeList : [],
+      );
+
+      // 팝업
       const today = new Date().toISOString().slice(0, 10);
 
-      const visiblePopupList = (res.data.popupList || []).filter((popup) => {
+      const visiblePopupList = (
+        Array.isArray(res.data.popupList) ? res.data.popupList : []
+      ).filter((popup) => {
         const hideDate = localStorage.getItem(`mainPopupHideDate_${popup.id}`);
 
         return hideDate !== today;
@@ -107,14 +120,21 @@ const Main = () => {
       setPopupList(visiblePopupList.slice(0, 2));
     } catch (err) {
       console.error("메인 데이터 조회 오류:", err);
+
+      setCommunityList([]);
+      setDefaultCommunityList([]);
+      setProductList([]);
+      setNoticeList([]);
+      setPopupList([]);
     }
   };
+
   // 선택한 게시판 탭의 조회수 높은 게시글 TOP 5 조회
   const getBestCommunityList = async (tabName) => {
     setBestTab(tabName);
     // 추천 탭은 메인 최초 조회에서 받은 목록 다시 사용
     if (tabName === "추천") {
-      setCommunityList(defaultCommunityList);
+      setCommunityList(defaultCommunityList.slice(0, 5));
       return;
     }
     try {
@@ -144,8 +164,10 @@ const Main = () => {
 
   // 상위 8개 상품 가져오기
   const displayProducts = productList.slice(0, 8);
+
   useEffect(() => {
-    console.log("상품 리스트:", productList);
+    console.log("메인 상품 목록:", productList);
+    console.log("메인 상품 개수:", productList.length);
   }, [productList]);
   return (
     <div className="main-container">
@@ -153,11 +175,7 @@ const Main = () => {
       {popupList.length > 0 && (
         <div className="main-popup-area">
           {popupList.map((popup, index) => (
-            <div
-              className="main-popup"
-              key={popup.id}
-              style={{ left: `${80 + index * 370}px` }}
-            >
+            <div className="main-popup" key={popup.id}>
               <button
                 className="main-popup-close"
                 onClick={() => closePopup(popup.id)}
@@ -175,7 +193,9 @@ const Main = () => {
               <h3>{popup.title}</h3>
               <p>{popup.content}</p>
               <div className="main-popup-bottom">
-                <button onClick={() => closeToday(popup.id)}>오늘 그만보기</button>
+                <button onClick={() => closeToday(popup.id)}>
+                  오늘 그만보기
+                </button>
                 <button onClick={() => closePopup(popup.id)}>닫기</button>
               </div>
             </div>
@@ -203,7 +223,10 @@ const Main = () => {
             </SwiperSlide>
             <SwiperSlide>
               <a href="/community/index">
-                <img src="/images/main/communitybanner.png" alt="메인 커뮤니티 배너" />
+                <img
+                  src="/images/main/communitybanner.png"
+                  alt="메인 커뮤니티 배너"
+                />
               </a>
             </SwiperSlide>
           </Swiper>
@@ -262,7 +285,8 @@ const Main = () => {
                     ))}
                   </div>
                   <ul className="best-list">
-                    {Array.isArray(communityList) && communityList.length > 0 ? (
+                    {Array.isArray(communityList) &&
+                    communityList.length > 0 ? (
                       communityList.slice(0, 3).map((item) => (
                         <li key={item.id} className="board-item">
                           <a href={`/community/detail/${item.id}`}>
@@ -303,12 +327,16 @@ const Main = () => {
                   </div>
                   <div className="membership-list">
                     {myMembership.length === 0 ? (
-                      <p className="no-membership">보유 중인 이용권이 없습니다.</p>
+                      <p className="no-membership">
+                        보유 중인 이용권이 없습니다.
+                      </p>
                     ) : (
                       myMembership.slice(0, 2).map((item) => (
                         <div className="membership-item" key={item.id}>
                           <div className="item-info">
-                            <span className="item-name">{item.productName}</span>
+                            <span className="item-name">
+                              {item.productName}
+                            </span>
                             <span className="item-count">
                               {item.productType === "PT"
                                 ? `잔여 ${item.remainingCount}/${item.totalCount}회`
@@ -329,7 +357,8 @@ const Main = () => {
                 <div className="prompt-icon">📅</div>
                 <h3>나의 운동 일정을 관리해보세요</h3>
                 <p>
-                  로그인하시면 개인 스케줄 및 PT 일정을<br />
+                  로그인하시면 개인 스케줄 및 PT 일정을
+                  <br />
                   한눈에 쉽게 확인하실 수 있습니다.
                 </p>
                 <button
@@ -380,8 +409,8 @@ const Main = () => {
                   <div className="product-img-wrapper">
                     <img
                       src={
-                        product.newFileName
-                          ? `${API_SERVER_URL}/upload/product/${product.newFileName}`
+                        product.fileDtos?.[0]?.newFileName
+                          ? `${API_SERVER_URL}/upload/product/${product.fileDtos[0].newFileName}`
                           : "/images/test/placeholder.png"
                       }
                       alt={product.productName}
@@ -397,7 +426,7 @@ const Main = () => {
                 </div>
               ))
             ) : (
-              <div className="empty-products">등록된 상품이 없습니다.</div>
+              <div className="empty-products">등록된 상품이 없습니다</div>
             )}
           </div>
         </div>
