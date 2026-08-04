@@ -1,5 +1,5 @@
 # 팀 프로젝트 결과물 (핏메이트)
-<h1>[AWS EC2 서버 바로가기](http://ec2-54-116-91-111.ap-northeast-2.compute.amazonaws.com/)</h1>
+<a href="http://ec2-54-116-91-111.ap-northeast-2.compute.amazonaws.com/"><h1>[AWS EC2 서버 바로가기]()</h1></a>
 
 
 ### 이 프로젝트는 팀프로젝트에서 개인별 github로 옮긴 프로젝트입니다.
