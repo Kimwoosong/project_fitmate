@@ -25,12 +25,13 @@
 - [다짐](https://www.da-gym.co.kr/) : PT, 트레이너 카드 UX, UI 참고
 - [짐박스](https://gymboxx.com/) : 헬스장 이용권 UX, UI 참고
 
-## 기술 스택
-<img width="653" height="354" alt="image" src="https://github.com/user-attachments/assets/0ed07204-60fc-4048-9130-328d6291cb0a" />
+## 사용한 기술 스택 & 개발 툴 & API
+<img width="1594" height="881" alt="image" src="https://github.com/user-attachments/assets/f0a49fed-80b4-4156-ae55-5b4352be4513" />
 
-<img width="1986" height="1086" alt="image" src="https://github.com/user-attachments/assets/225efab4-db8a-4652-90f5-b901ec463147" />
+<img width="1986" height="1086" alt="image" src="https://github.com/user-attachments/assets/2525ee08-45e8-4ea7-b690-924221c19733" />
 
-<img width="1986" height="1086" alt="image" src="https://github.com/user-attachments/assets/9c2bcbd3-3fa6-474e-8694-95f0edfb2203" />
+<img width="1986" height="1086" alt="image" src="https://github.com/user-attachments/assets/73c90804-8b9a-40c9-86a7-2223565de1c8" />
+
 
 ## 프로젝트 팀 내 역할
 로그인, 회원가입, 개인페이지, 관리자페이지 작성
