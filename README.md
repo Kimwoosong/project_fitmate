@@ -26,7 +26,7 @@
 - [짐박스](https://gymboxx.com/) : 헬스장 이용권 UX, UI 참고
 
 <details>
-<summary><b>사용한 기술 스택 & 개발 툴 & API (클릭하여 보기)</b></summary>
+<summary><h2>사용한 기술 스택 & 개발 툴 & API</h2></summary>
 
 <div markdown="1">
 
