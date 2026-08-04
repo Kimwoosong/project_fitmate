@@ -27,15 +27,17 @@
 
 ## <details><summary>사용한 기술 스택 & 개발 툴 & API</summary>
 
-<div align="center">
+<br>
 
-| 기술 스택 / 툴 | 관련 이미지 |
-| :---: | :---: |
-| **기술 스택 개요** | <img width="700" alt="기술 스택" src="https://github.com/user-attachments/assets/f0a49fed-80b4-4156-ae55-5b4352be4513"> |
-| **개발 툴** | <img width="700" alt="개발 툴" src="https://github.com/user-attachments/assets/2525ee08-45e8-4ea7-b690-924221c19733"> |
-| **API 및 라이브러리** | <img width="700" alt="API" src="https://github.com/user-attachments/assets/73c90804-8b9a-40c9-86a7-2223565de1c8"> |
+<img width="800" alt="기술 스택 1" src="https://github.com/user-attachments/assets/f0a49fed-80b4-4156-ae55-5b4352be4513" />
 
-</div>
+<br><br>
+
+<img width="800" alt="기술 스택 2" src="https://github.com/user-attachments/assets/2525ee08-45e8-4ea7-b690-924221c19733" />
+
+<br><br>
+
+<img width="800" alt="기술 스택 3" src="https://github.com/user-attachments/assets/73c90804-8b9a-40c9-86a7-2223565de1c8" />
 
 </details>
 
