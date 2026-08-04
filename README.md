@@ -25,13 +25,13 @@
 - [다짐](https://www.da-gym.co.kr/) : PT, 트레이너 카드 UX, UI 참고
 - [짐박스](https://gymboxx.com/) : 헬스장 이용권 UX, UI 참고
 
-## 사용한 기술 스택 & 개발 툴 & API
+## <details><summary>사용한 기술 스택 & 개발 툴 & API</summary>
 <img width="1594" height="881" alt="image" src="https://github.com/user-attachments/assets/f0a49fed-80b4-4156-ae55-5b4352be4513" />
 
 <img width="1986" height="1086" alt="image" src="https://github.com/user-attachments/assets/2525ee08-45e8-4ea7-b690-924221c19733" />
 
 <img width="1986" height="1086" alt="image" src="https://github.com/user-attachments/assets/73c90804-8b9a-40c9-86a7-2223565de1c8" />
-
+</details>
 
 ## 프로젝트 팀 내 역할
 - 회원기능 : Spring Security 및 JWT 기반 인증·인가 구현
