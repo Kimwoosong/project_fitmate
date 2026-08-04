@@ -4,7 +4,15 @@ on:
   push:
     branches:
       - main
-
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**' # 문서 폴더 전체를 제외하고 싶을 때
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
 jobs:
   # ---------------------------------------------------------------------------
   # JOB 1: Backend / Frontend Docker 이미지 빌드 후 Docker Hub에 Push
