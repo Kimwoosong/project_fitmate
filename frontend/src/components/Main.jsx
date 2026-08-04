@@ -46,22 +46,58 @@ const Main = () => {
     setPopupList((prev) => prev.filter((popup) => popup.id !== popupId));
   };
 
-  // 캘린더 조회
+  // 회원 개인 일정 조회
   const getCalendarList = async () => {
+    if (!isLogin) {
+      return [];
+    }
+
+    try {
+      const res = await jwtAxios.get(`${API_URL}/api/calendar/scheduleList`, {
+        params: {
+          eventType: "ALL",
+        },
+      });
+
+      return Array.isArray(res.data) ? res.data : [];
+    } catch (err) {
+      console.error("개인 캘린더 조회 오류:", err);
+      return [];
+    }
+  };
+
+  // 트레이너 PT 일정 조회
+  const getTrainerCalendar = async () => {
+    try {
+      const res = await jwtAxios.get(`${API_URL}/api/calendar/trainer`);
+
+      return Array.isArray(res.data) ? res.data : [];
+    } catch (err) {
+      console.error("트레이너 캘린더 조회 실패:", err);
+      return [];
+    }
+  };
+  const loadCalendar = async () => {
     if (!isLogin) {
       setCalendarEvents([]);
       return;
     }
-    try {
-      const res = await jwtAxios.get(`${API_URL}/api/calendar/scheduleList`, {
-        params: { eventType: "ALL" },
-      });
-      setCalendarEvents(res.data || []);
-    } catch (err) {
-      console.error("캘린더 조회 오류:", err);
-      setCalendarEvents([]);
+
+    // 모든 로그인 사용자의 개인 일정 조회
+    const memberEvents = await getCalendarList();
+
+    // 일반 회원은 개인 일정만 사용
+    if (user.role !== "TRAINER") {
+      setCalendarEvents(memberEvents);
+      return;
     }
+
+    // 트레이너는 개인 일정 + 담당 PT 일정
+    const trainerEvents = await getTrainerCalendar();
+
+    setCalendarEvents([...memberEvents, ...trainerEvents]);
   };
+
   // 내 이용권 조회
   const loadMyMembership = async () => {
     if (!isLogin) {
@@ -71,7 +107,7 @@ const Main = () => {
 
     try {
       const data = await getMyMembership();
-      console.log(data);
+      // console.log(data);
       setMyMembership(data || []);
     } catch (err) {
       console.error("내 이용권 조회 실패:", err);
@@ -156,19 +192,20 @@ const Main = () => {
     getMainData();
   }, [isLogin]);
 
-  // 로그인 상태에 따라 개인 캘린더 조회
+  // 회원, 트레이너 캘린더 조회
   useEffect(() => {
-    getCalendarList();
+    loadCalendar();
     loadMyMembership();
-  }, [isLogin]);
+  }, [isLogin, user.role]);
 
   // 상위 8개 상품 가져오기
   const displayProducts = productList.slice(0, 8);
 
   useEffect(() => {
-    console.log("메인 상품 목록:", productList);
-    console.log("메인 상품 개수:", productList.length);
+    // console.log("메인 상품 목록:", productList);
+    // console.log("메인 상품 개수:", productList.length);
   }, [productList]);
+  console.log(user)
   return (
     <div className="main-container">
       {/* 팝업 모달 */}
@@ -257,7 +294,7 @@ const Main = () => {
               {selectMenu === "notice" && (
                 <ul className="notice-list">
                   {Array.isArray(noticeList) && noticeList.length > 0 ? (
-                    noticeList.slice(0, 3).map((notice) => (
+                    noticeList.slice(0, 5).map((notice) => (
                       <li key={notice.id} className="board-item">
                         <a href={`/community/detail/${notice.id}`}>
                           <span className="notice-badge">공지</span>
@@ -274,20 +311,20 @@ const Main = () => {
               {selectMenu === "best" && (
                 <div className="best-wrapper">
                   <div className="sub-tab-group">
-                    {["추천", "운동정보", "자유게시판"].map((tab) => (
+                    {["추천", "운동게시판", "자유게시판"].map((tab) => (
                       <button
                         key={tab}
                         className={`sub-tab ${bestTab === tab ? "active" : ""}`}
                         onClick={() => getBestCommunityList(tab)}
                       >
-                        {tab === "운동정보" ? "운동게시판" : tab}
+                        {tab}
                       </button>
                     ))}
                   </div>
                   <ul className="best-list">
                     {Array.isArray(communityList) &&
                     communityList.length > 0 ? (
-                      communityList.slice(0, 3).map((item) => (
+                      communityList.slice(0, 5).map((item) => (
                         <li key={item.id} className="board-item">
                           <a href={`/community/detail/${item.id}`}>
                             <span className="item-title">{item.title}</span>
@@ -314,7 +351,9 @@ const Main = () => {
                     onEventClick={() => navigate("/mypage/schedule")}
                   />
                 </div>
-
+                
+                {user.role !== "TRAINER" && (
+                  
                 <div className="membership-box">
                   <div className="membership-header">
                     <h4>내 보유 이용권</h4>
@@ -351,6 +390,7 @@ const Main = () => {
                     )}
                   </div>
                 </div>
+                 )}
               </>
             ) : (
               <div className="login-prompt-box">

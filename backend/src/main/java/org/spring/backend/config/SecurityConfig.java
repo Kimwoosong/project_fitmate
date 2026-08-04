@@ -60,31 +60,30 @@ public class SecurityConfig {
                         throws Exception {
                 http.csrf(
                                 csrf -> csrf.disable())
-                        .authorizeHttpRequests(authorize -> authorize
-                                .requestMatchers("/api/chatEndpoint/**").permitAll()
-                                .requestMatchers("/api/member/login", "/api/member/join", "/api/member/email").permitAll()
-                                // hasAnyRole -> hasAnyAuthority 로 변경 ("ROLE_" 접두사 없이 검사)
-                                .requestMatchers("/api/member/admin/**").hasAnyAuthority("ADMIN", "MANAGER")
-                                .requestMatchers("/api/admin/**").hasAnyAuthority("ADMIN", "MANAGER")
-                                .requestMatchers("/api/member/**").authenticated()
-                                .requestMatchers("/api/payment/kakao/pg/**").permitAll() // 카카오결제 임시허용
-                                .anyRequest().permitAll())
-                        .formLogin(form -> form.disable())
-                        .httpBasic(httpBasic -> httpBasic.disable())
-                        .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                        .logout(logout -> logout.disable()) //기존 로그아웃방식 비활성화
-                        .sessionManagement(session -> session
-                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                        .oauth2Login(oauth2 -> oauth2.loginPage("/auth/login").userInfoEndpoint(
-                                        userInfo -> userInfo.userService(customDefaultOAuth2UserService))
-                                .successHandler(customOAuth2SuccessHandler)
-                                .failureUrl(frontServerURL + "/login?error"))
-                        .addFilterBefore(new JWTFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
-                        .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil,
-                                        objectMapper, redisTemplate),
-                                UsernamePasswordAuthenticationFilter.class) // Spring 기본 로그인 필터대신 사용
-                        .addFilterBefore(new CustomLogoutFilter(redisTemplate,tokenValidationService),
-                                LogoutFilter.class).exceptionHandling(exception -> exception
+                                .authorizeHttpRequests(authorize -> authorize
+                                        .requestMatchers("/api/chatEndpoint/**").permitAll()
+                                                .requestMatchers("/api/member/login", "/api/member/join", "/api/member/email").permitAll()
+                                        // hasAnyRole -> hasAnyAuthority 로 변경 ("ROLE_" 접두사 없이 검사)
+                                        .requestMatchers("/api/member/admin/**").hasAnyAuthority("ADMIN", "MANAGER")
+                                        .requestMatchers("/api/admin/**").hasAnyAuthority("ADMIN", "MANAGER")
+                                                 .requestMatchers("/api/member/**").authenticated()
+                                                .requestMatchers("/api/payment/kakao/pg/**").permitAll() // 카카오결제 임시허용
+                                                .anyRequest().permitAll())
+                                .formLogin(form -> form.disable())
+                                .httpBasic(httpBasic -> httpBasic.disable())
+                                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                                .logout(logout -> logout.disable()) //기존 로그아웃방식 비활성화
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .oauth2Login(oauth2 -> oauth2.userInfoEndpoint(
+                                                userInfo -> userInfo.userService(customDefaultOAuth2UserService))
+                                                .successHandler(customOAuth2SuccessHandler))
+                                .addFilterBefore(new JWTFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
+                                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil,
+                                                objectMapper, redisTemplate),
+                                                UsernamePasswordAuthenticationFilter.class) // Spring 기본 로그인 필터대신 사용
+                                .addFilterBefore(new CustomLogoutFilter(redisTemplate,tokenValidationService),
+                                                LogoutFilter.class).exceptionHandling(exception -> exception
                                 .authenticationEntryPoint((request, response, authException) -> {
                                         // 리다이렉트 대신 401 상태코드 반환
                                         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
