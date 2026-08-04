@@ -25,19 +25,30 @@
 - [다짐](https://www.da-gym.co.kr/) : PT, 트레이너 카드 UX, UI 참고
 - [짐박스](https://gymboxx.com/) : 헬스장 이용권 UX, UI 참고
 
-## <details><summary>사용한 기술 스택 & 개발 툴 & API</summary>
+<details>
+<summary><b>사용한 기술 스택 & 개발 툴 & API (클릭하여 보기)</b></summary>
+
+<div markdown="1">
 
 <br>
 
-<img width="800" alt="기술 스택 1" src="https://github.com/user-attachments/assets/f0a49fed-80b4-4156-ae55-5b4352be4513" />
+<p align="center">
+  <img width="800" alt="기술 스택 1" src="https://github.com/user-attachments/assets/f0a49fed-80b4-4156-ae55-5b4352be4513" />
+</p>
 
-<br><br>
+<br>
 
-<img width="800" alt="기술 스택 2" src="https://github.com/user-attachments/assets/2525ee08-45e8-4ea7-b690-924221c19733" />
+<p align="center">
+  <img width="800" alt="기술 스택 2" src="https://github.com/user-attachments/assets/2525ee08-45e8-4ea7-b690-924221c19733" />
+</p>
 
-<br><br>
+<br>
 
-<img width="800" alt="기술 스택 3" src="https://github.com/user-attachments/assets/73c90804-8b9a-40c9-86a7-2223565de1c8" />
+<p align="center">
+  <img width="800" alt="기술 스택 3" src="https://github.com/user-attachments/assets/73c90804-8b9a-40c9-86a7-2223565de1c8" />
+</p>
+
+</div>
 
 </details>
 
