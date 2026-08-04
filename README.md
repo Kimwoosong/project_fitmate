@@ -7,7 +7,27 @@
 </details>
 
 ## 팀 프로젝트 개요
-- 국내 펫 푸드 시장을 겨냥한 **반려견** 유저만을 위한 쇼핑몰 사이트
+- 코로나19 이후 건강 및 자기관리 관심증가
+- 운동 인구 증가, 하지만 운동 지속률은 낮음
+- 초보자의 정보 부족 및 동기부여 문제
+- 헬스장의 회원 관리 및 운영의 어려움
+
+## 프로젝트 주요 기능
+- 운동 정보 공유 및 커뮤니티 제공
+- 운동 루틴 기록 및 개인 운동 관리
+- PT, 헬스장 상품 비교 및 예약, 결제
+- FitMate Plus 구독 서비스를 통한 회원 혜택 제공
+- 운동과 회원 관리를 통합한 올인원 플랫폼 구축
+
+## 벤치마킹 사이트
+- [DASHIN](https://www.dietshin.com/)
+쇼핑몰과 커뮤니티로 나눠져 있는 구조 참고
+- [Burn Fit](https://routine.burnfit.io/)
+루틴 생성 구조 참고
+- [다짐](https://www.da-gym.co.kr/)
+PT, 트레이너 카드 UX, UI 참고
+- [짐박스](https://gymboxx.com/)
+헬스장 이용권 UX, UI 참고
 
 ## 활용 장비 및 기술 스택
 - Frontend : <img src="https://img.shields.io/badge/react-%2361DAFB.svg?&style=for-the-badge&logo=react&logoColor=black" /> <img src="https://img.shields.io/badge/redux-%23764ABC.svg?&style=for-the-badge&logo=redux&logoColor=white" /> <img src="https://img.shields.io/badge/react%20router-%23CA4245.svg?&style=for-the-badge&logo=react%20router&logoColor=white" />
