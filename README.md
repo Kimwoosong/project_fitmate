@@ -52,8 +52,9 @@
 <img width="1706" height="945" alt="image" src="https://github.com/user-attachments/assets/8de32302-be89-4dc5-95e1-ec294afbebb5" />
 
 # 담당 기능
-<details><summary>로그인</summary></details>
-- <img width="1642" height="711" alt="image" src="https://github.com/user-attachments/assets/6ad629b1-0c9d-4caa-ac0b-1d1f346dc609" />
+<details><summary>로그인</summary>
+<img width="1642" height="711" alt="image" src="https://github.com/user-attachments/assets/6ad629b1-0c9d-4caa-ac0b-1d1f346dc609" />
+</details>
 
 <details><summary>회원가입</summary>
 
