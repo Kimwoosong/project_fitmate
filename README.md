@@ -1,9 +1,9 @@
 # 팀 프로젝트 결과물 (핏메이트)
 # AWS EC2 서버 주소
-http://ec2-54-116-91-111.ap-northeast-2.compute.amazonaws.com/
+[FitMate](http://ec2-54-116-91-111.ap-northeast-2.compute.amazonaws.com/)
 
 ### 이 프로젝트는 팀프로젝트에서 개인별 github로 옮긴 프로젝트입니다.
-- 팀프로젝트 github : [DDStore(팀)](https://github.com/ydshin727/DDStore)
+- 팀프로젝트 github : [FitMate(팀)](https://github.com/ydshin727/DDStore](https://github.com/Drag-93/project_fitmate)
 </details>
 
 ## 팀 프로젝트 개요
