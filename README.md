@@ -1,20 +1,6 @@
-# 팀 프로젝트 결과물 (댕댕상점)
-<details><summary>실행 방법</summary>
-
-### 1. 패키지 설치
-```bash
-npm install
-```
-
-### 2. JSON Server 실행
-```bash
-json-server --watch src/db/testdb.json --host 0.0.0.0 --port 3001
-```
-
-### 3. 프로젝트 실행
-```bash
-npm run dev
-```
+# 팀 프로젝트 결과물 (핏메이트)
+# AWS EC2 서버 주소
+http://ec2-54-116-91-111.ap-northeast-2.compute.amazonaws.com/
 
 ### 이 프로젝트는 팀프로젝트에서 개인별 github로 옮긴 프로젝트입니다.
 - 팀프로젝트 github : [DDStore(팀)](https://github.com/ydshin727/DDStore)
