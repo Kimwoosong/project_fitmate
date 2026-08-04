@@ -57,12 +57,28 @@
 - 챗봇기능 : Chatbot FAQ 기능(Komoran 형태소 분석기 활용)
 - 파일 저장 기능 공통화 : 공통 파일 DB 관리 & 공통 파일 함수 작성
 
-## 일정표
-<img width="1538" height="664" alt="image" src="https://github.com/user-attachments/assets/6a7ad519-6434-4b59-8587-be9d3de3d66a" />
+<details>
+<summary><h2>일정표</h2></summary>
 
-<img width="1540" height="723" alt="image" src="https://github.com/user-attachments/assets/40d0e9a4-4bdb-43f1-b049-536b2ccd2da0" />
+<div markdown="1">
 
-## 프로젝트 수행경과 - 김우송(개인)
+<br>
+
+<p align="center">
+  <img width="800" alt="일정표 이미지 1" src="https://github.com/user-attachments/assets/6a7ad519-6434-4b59-8587-be9d3de3d66a" />
+</p>
+
+<br>
+
+<p align="center">
+  <img width="800" alt="일정표 이미지 2" src="https://github.com/user-attachments/assets/40d0e9a4-4bdb-43f1-b049-536b2ccd2da0" />
+</p>
+
+</div>
+
+</details>
+
+## 개인 일정
 <img width="1690" height="321" alt="image" src="https://github.com/user-attachments/assets/a31fe014-6f02-491b-a66c-cd618acbbaff" />
 
 
