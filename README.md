@@ -78,10 +78,20 @@
 
 </details>
 
-## 개인 일정
-<img width="1690" height="321" alt="image" src="https://github.com/user-attachments/assets/a31fe014-6f02-491b-a66c-cd618acbbaff" />
+<details>
+<summary><h2>개인 일정</h2></summary>
 
+<div markdown="1">
 
+<br>
+
+<p align="center">
+  <img width="800" alt="개인 일정 이미지" src="https://github.com/user-attachments/assets/a31fe014-6f02-491b-a66c-cd618acbbaff" />
+</p>
+
+</div>
+
+</details>
 
 ## DB 구조
 <img width="1706" height="945" alt="image" src="https://github.com/user-attachments/assets/8de32302-be89-4dc5-95e1-ec294afbebb5" />
