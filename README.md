@@ -20,14 +20,10 @@
 - 운동과 회원 관리를 통합한 올인원 플랫폼 구축
 
 ## 벤치마킹 사이트
-- [DASHIN](https://www.dietshin.com/)
-쇼핑몰과 커뮤니티로 나눠져 있는 구조 참고
-- [Burn Fit](https://routine.burnfit.io/)
-루틴 생성 구조 참고
-- [다짐](https://www.da-gym.co.kr/)
-PT, 트레이너 카드 UX, UI 참고
-- [짐박스](https://gymboxx.com/)
-헬스장 이용권 UX, UI 참고
+- [DASHIN](https://www.dietshin.com/) : 쇼핑몰과 커뮤니티로 나눠져 있는 구조 참고
+- [Burn Fit](https://routine.burnfit.io/) : 루틴 생성 구조 참고
+- [다짐](https://www.da-gym.co.kr/) : PT, 트레이너 카드 UX, UI 참고
+- [짐박스](https://gymboxx.com/) : 헬스장 이용권 UX, UI 참고
 
 ## 활용 장비 및 기술 스택
 - Frontend : <img src="https://img.shields.io/badge/react-%2361DAFB.svg?&style=for-the-badge&logo=react&logoColor=black" /> <img src="https://img.shields.io/badge/redux-%23764ABC.svg?&style=for-the-badge&logo=redux&logoColor=white" /> <img src="https://img.shields.io/badge/react%20router-%23CA4245.svg?&style=for-the-badge&logo=react%20router&logoColor=white" />
