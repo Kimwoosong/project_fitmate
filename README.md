@@ -34,15 +34,27 @@
 
 
 ## 프로젝트 팀 내 역할
-로그인, 회원가입, 개인페이지, 관리자페이지 작성
+- 회원기능 : Spring Security 및 JWT 기반 인증·인가 구현
+- 챗봇기능 : Chatbot FAQ 기능(Komoran 형태소 분석기 활용)
+- 파일 저장 기능 공통화 : 공통 파일 DB 관리 & 공통 파일 함수 작성
 
-## 프로젝트 수행 절차
-![수행절차](수행절차.png)
+## 일정표
+<img width="1538" height="664" alt="image" src="https://github.com/user-attachments/assets/6a7ad519-6434-4b59-8587-be9d3de3d66a" />
 
-## 전체 구조([Figma](https://www.figma.com/design/87rr6KYZyRzEv6WKVzVbQh/DDStore--Copy-?node-id=0-1&t=Oibo53IWqsAGzNp2-1))
-![figma](figma.png)
+<img width="1540" height="723" alt="image" src="https://github.com/user-attachments/assets/40d0e9a4-4bdb-43f1-b049-536b2ccd2da0" />
+
+## 프로젝트 수행경과 - 김우송(개인)
+<img width="1690" height="321" alt="image" src="https://github.com/user-attachments/assets/a31fe014-6f02-491b-a66c-cd618acbbaff" />
+
+
+
+## DB 구조
+<img width="1706" height="945" alt="image" src="https://github.com/user-attachments/assets/8de32302-be89-4dc5-95e1-ec294afbebb5" />
 
 # 담당 기능
+<details><summary>로그인</summary></details>
+<img width="1642" height="711" alt="image" src="https://github.com/user-attachments/assets/6ad629b1-0c9d-4caa-ac0b-1d1f346dc609" />
+
 <details><summary>회원가입</summary>
 
 - 정규식으로 이메일/비밀번호 형식 검증
