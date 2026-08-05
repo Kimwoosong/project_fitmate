@@ -301,7 +301,7 @@ public class PaymentServiceImpl implements PaymentService {
         .encode()
         .build()
         .toUri();
-
+System.out.println("====== 주입된 frontServerURL 값: " + frontServerURL + " ======");
     try {
       ResponseEntity<KakaoPayPrepareDto> result = restTemplate.exchange(uri, HttpMethod.POST, entity, KakaoPayPrepareDto.class);
       KakaoPayPrepareDto body = result.getBody();
