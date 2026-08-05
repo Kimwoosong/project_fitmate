@@ -301,7 +301,7 @@ public class PaymentServiceImpl implements PaymentService {
         .encode()
         .build()
         .toUri();
-
+System.out.println("====== 카카오페이 요청 직전 확인용 URI: " + uri.toString() + " ======");
     try {
       ResponseEntity<KakaoPayPrepareDto> result = restTemplate.exchange(uri, HttpMethod.POST, entity,
           KakaoPayPrepareDto.class);
