@@ -97,7 +97,7 @@
 
 # 담당 기능
 <details><summary>자세히 보기</summary>
-
+<br><br>
 <details><summary>로그인</summary>
 <img width="1642" height="711" alt="image" src="https://github.com/user-attachments/assets/6ad629b1-0c9d-4caa-ac0b-1d1f346dc609" />
 </details>
