@@ -107,16 +107,17 @@
 - 정규식으로 이메일/비밀번호 형식 검증
 - member DB 조회 -> 이메일 중복 체크
 - 이메일 중복 체크, 비밀번호 확인기능 실시간 체크
+- 주소찾기 시 팀장님이 만들어두신 KakaoMap 활용 팝업을 이용해 주소를 넣음
 - 조건 통과 시 DB에 회원 정보 저장, 로그인 화면 이동
 
 </details>
 
-<details><summary>로그인</summary>
+<details><summary>개인 페이지(서비스 바로가기)</summary>
+<img width="1500" height="779" alt="image" src="https://github.com/user-attachments/assets/864a0d42-8623-4022-a56e-07478a9b93ac" />
 
-- member DB 조회 -> 이메일 / 비밀번호 정보 일치 확인
-- 일치 시 로그인 진행
-- authSlice에 계정 정보 저장
-- localStorage에 계정 정보 저장해서 로그인 유지
+- 일반 회원 / 트레이너의 페이지를 다르게 설정
+- 일반 회원은 <b>/ 주문내역 / FitMate Plus+(구독상품) / PT 관리(회원이 등록한 PT 조회) / 이용권 관리(구독상품 제외 이용권) / 스케줄</b>
+- 트레이너는 <b>/ PT예약관리(등록되어있는 회원 조회) / 프로필 관리(PT상품 조회 시 트레이너의 프로필 관리) / 수업일정(등록된 회원들의 예약된 일정 관리)</b>
 
 </details>
 
