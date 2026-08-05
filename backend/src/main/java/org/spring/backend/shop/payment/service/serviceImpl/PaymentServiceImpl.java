@@ -245,7 +245,7 @@ public class PaymentServiceImpl implements PaymentService {
         .collect(Collectors.joining(", ", "[", "]"));
   }
 
-  @Override
+ @Override
   public String pgRequest(String pg, Long orderId) {
     if (!"kakao".equalsIgnoreCase(pg)) {
       throw new RuntimeException("제휴되지 않은 결제사입니다.");
@@ -257,16 +257,12 @@ public class PaymentServiceImpl implements PaymentService {
     Long memberId = orderEntity.getMemberEntity().getId();
     int amount = orderEntity.getTotalPrice();
 
-    // 첫 번째 상품명을 대표 상품명으로 사용
     OrderItemEntity item = orderEntity.getOrderItemEntities().get(0);
-
     String productName = item.getProductName();
-
     if (productName == null) {
       productName = item.getProductEntity().getProductName();
     }
 
-    // 1. 주문번호(ID) 발급을 위해 최소 정보로 최초 저장
     PaymentEntity paymentEntity = PaymentEntity.builder()
         .paymentMethod(PaymentMethod.KAKAO)
         .paymentStatus(PaymentStatus.READY)
@@ -283,44 +279,45 @@ public class PaymentServiceImpl implements PaymentService {
     headers.add("Authorization", "KakaoAK " + kakaoAdminKey);
     headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-    HttpEntity<String> entity = new HttpEntity<>(headers);
+    // ★ 핵심 수정: 파라미터를 쿼리 스트링이 아니라 Body(MultiValueMap)에 담아야 합니다.
+    org.springframework.util.MultiValueMap<String, String> params = new org.springframework.util.LinkedMultiValueMap<>();
+    params.add("cid", "TC0ONETIME");
+    params.add("partner_order_id", String.valueOf(orderEntity.getId()));
+    params.add("partner_user_id", String.valueOf(memberId));
+    params.add("item_name", productName);
+    params.add("quantity", "1");
+    params.add("total_amount", String.valueOf(amount));
+    params.add("tax_free_amount", "0");
+    params.add("approval_url", frontServerURL + "/payment/approval/" + paymentEntity.getId());
+    params.add("cancel_url", frontServerURL + "/payment/cancel");
+    params.add("fail_url", frontServerURL + "/payment/fail");
 
+    HttpEntity<org.springframework.util.MultiValueMap<String, String>> entity = new HttpEntity<>(params, headers);
+
+    // URI는 쿼리 없이 순수한 엔드포인트만 지정
     URI uri = UriComponentsBuilder
         .fromUriString("https://kapi.kakao.com")
         .path("/v1/payment/ready")
-        .queryParam("cid", "TC0ONETIME")
-        .queryParam("partner_order_id", orderEntity.getId())
-        .queryParam("partner_user_id", memberId)
-        .queryParam("item_name", productName)
-        .queryParam("quantity", "1")
-        .queryParam("total_amount", amount)
-        .queryParam("tax_free_amount", "0")
-        .queryParam("approval_url", frontServerURL + "/payment/approval/" + paymentEntity.getId())
-        .queryParam("cancel_url", frontServerURL + "/payment/cancel")
-        .queryParam("fail_url", frontServerURL + "/payment/fail")
         .encode()
         .build()
         .toUri();
-System.out.println("====== 카카오페이 요청 직전 확인용 URI: " + uri.toString() + " ======");
+
     try {
-      ResponseEntity<KakaoPayPrepareDto> result = restTemplate.exchange(uri, HttpMethod.POST, entity,
-          KakaoPayPrepareDto.class);
+      ResponseEntity<KakaoPayPrepareDto> result = restTemplate.exchange(uri, HttpMethod.POST, entity, KakaoPayPrepareDto.class);
       KakaoPayPrepareDto body = result.getBody();
       if (body != null) {
         String kakaoJsonString = objectMapper.writeValueAsString(body);
 
-        // Drity Checking 기능을 통해 자동으로 세션 JSON 및 tid 동기화 저장
         paymentEntity.setPaymentReadyJson(kakaoJsonString);
         paymentEntity.setTid(body.getTid());
 
         return body.getNext_redirect_pc_url();
-
       }
       throw new RuntimeException("카카오페이로부터 응답 데이터를 받지 못했습니다.");
     } catch (JsonProcessingException e) {
       throw new RuntimeException("카카오 응답 오브젝트 직렬화 실패", e);
     } catch (Exception e) {
-      throw new RuntimeException("카카오페이 Ready 요청 실패", e);
+      throw new RuntimeException("카카오페이 Ready 요청 실패: " + e.getMessage(), e);
     }
   }
 
