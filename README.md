@@ -102,6 +102,7 @@
 </details>
 
 <details><summary>회원가입</summary>
+<img width="1363" height="765" alt="image" src="https://github.com/user-attachments/assets/6f55d244-3ac2-49b0-9ed9-8e24c46f95d2" />
 
 - 정규식으로 이메일/비밀번호 형식 검증
 - member DB 조회 -> 이메일 중복 체크
