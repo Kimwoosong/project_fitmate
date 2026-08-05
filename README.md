@@ -4,7 +4,6 @@
 
 ### 이 프로젝트는 팀프로젝트에서 개인별 github로 옮긴 프로젝트입니다.
 - 팀프로젝트 github : [FitMate(팀)](https://github.com/ydshin727/DDStore](https://github.com/Drag-93/project_fitmate)
-</details>
 
 ## 팀 프로젝트 개요
 - 코로나19 이후 건강 및 자기관리 관심증가
