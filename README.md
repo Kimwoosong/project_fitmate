@@ -111,7 +111,7 @@
 - 조건 통과 시 DB에 회원 정보 저장, 로그인 화면 이동
 
 </details>
-<details><summary>개인페이지</summary><br>
+<details><summary>개인페이지</summary>
 <details><summary>개인 페이지(서비스 바로가기)</summary>
 <img width="1500" height="779" alt="image" src="https://github.com/user-attachments/assets/864a0d42-8623-4022-a56e-07478a9b93ac" />
 
