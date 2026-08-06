@@ -131,47 +131,56 @@
 <details><summary>개인 페이지-> PT관리 -> 트레이너 정보</summary>
 <img width="3417" height="1443" alt="image" src="https://github.com/user-attachments/assets/93889f45-7c35-4e82-98cc-6678f637e94f" />
 
-
 - 트레이너가 PT 예역관리 -> PT 수업관리 리스트 중 하나를 클릭할 시 해당 일반 회원의 정보 조회 가능
   
 </details>
 <details><summary>개인 페이지(상세 프로필 정보)->개인정보 수정(공통)</summary>
 <img width="3325" height="1466" alt="image" src="https://github.com/user-attachments/assets/25517cd5-5b82-4cec-8ae4-5868b02ae9d1" />
 
-
 - 계정 상세정보 조회 가능
 - 계정 정보 수정 가능
 - 비밀번호 변경은 passwordEncoder를 이용했기에 수정 시 개별 변경 페이지 사용
   
 </details>
+</details>
+<br>
+<details><summary>파일 공통화 작업</summary>
+<img width="3018" height="1413" alt="image" src="https://github.com/user-attachments/assets/43cd7b80-5511-4ade-b1dc-58d461e8be78" />
 
-
-
-
+- 파일 공통화는 처음 기획 단계에서 각자 파일 사용하는 DB를 쪼갰을 때 관리에 불편함이 있을 것 같다고 하여 하나로 통합 관리
+- 파일 공통화를 하면서 동일한 로직들은 하나의 함수로 사용 가능하게 설정
+</details>
+<br>
+<details><summary>챗봇</summary>
+<img width="2739" height="1509" alt="image" src="https://github.com/user-attachments/assets/cb6e37be-d0af-4976-84c2-13f4ba1d7c6d" />
+  
+- 챗봇은 Komoran을 이용해 형태소를 비교하여 질문리스트를 잡아냄
+- 질문이 챗봇 관리 페이지에 등록된 질문일 시 답변예약어 리스트를 보여줌
+- 질문과 답변을 동시에 하면 그 답변예약어의 답변을 출력함
 </details>
 <br>
 <details><summary>관리자페이지</summary><br>
 <details><summary>회원 관리 페이지</summary>
 <img width="3038" height="1497" alt="image" src="https://github.com/user-attachments/assets/7a43b29e-956e-40ef-9fe2-25235e6bcf38" />
 
-
-- 계정 상세정보 조회 가능
-- 계정 정보 수정 가능
-- 비밀번호 변경은 passwordEncoder를 이용했기에 수정 시 개별 변경 페이지 사용
-  
-</details>
-<details><summary>회원 관리 페이지</summary>
+- 권한 들을 권한 별 탭으로 나누어 실수로 다른 회원을 건드리지 못하게 설정
+- 기본적인 페이징&검색&필터링 기능 포함
+- 회원 추가시 모달창으로 추가 가능
+<br>
 <img width="3650" height="1442" alt="image" src="https://github.com/user-attachments/assets/ba779048-8d16-4b71-b23b-d73d96362000" />
 
+- 관리자는 권한 변경 가능 / 매니저는 권한 변경 불가
 
-- 계정 상세정보 조회 가능
-- 계정 정보 수정 가능
-- 비밀번호 변경은 passwordEncoder를 이용했기에 수정 시 개별 변경 페이지 사용
+</details>
+<details><summary>챗봇 관리 페이지</summary>
+<img width="3489" height="1415" alt="image" src="https://github.com/user-attachments/assets/5ab454d3-a6aa-4457-84f3-412f9d929f92" />
+<br>
+<img width="2814" height="1390" alt="image" src="https://github.com/user-attachments/assets/fc2e89da-a195-4ad7-b5bd-5277c203128d" />
+- 챗봇 리스트는 페이징&검색&필터링 기능
+- 각 질문 -> 답변예약어 구조로 되어있음
+- 질문 생성 시 대주제 & 세부행동으로 카테고리 지정가능 (각 카테고리별 차이점은 질문에 대한 답변 DB조회 시 우선순위 차이)
   
 </details>
-
-
 </details>
-<br>
 </details>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
