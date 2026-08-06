@@ -26,29 +26,7 @@
 
 <details>
 <summary><h2>사용한 기술 스택 & 개발 툴 & API</h2></summary>
-
-<div markdown="1">
-
-<br>
-
-<p align="center">
-  <img width="800" alt="기술 스택 1" src="https://github.com/user-attachments/assets/f0a49fed-80b4-4156-ae55-5b4352be4513" />
-</p>
-
-<br>
-
-<p align="center">
-  <img width="800" alt="기술 스택 2" src="https://github.com/user-attachments/assets/2525ee08-45e8-4ea7-b690-924221c19733" />
-</p>
-
-<br>
-
-<p align="center">
-  <img width="800" alt="기술 스택 3" src="https://github.com/user-attachments/assets/73c90804-8b9a-40c9-86a7-2223565de1c8" />
-</p>
-
-</div>
-
+<img width="3091" height="1458" alt="image" src="https://github.com/user-attachments/assets/b28bfa3b-d176-4986-ad85-2991baa803fb" />
 </details>
 
 ## 프로젝트 팀 내 역할
