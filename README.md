@@ -111,7 +111,7 @@
 - 조건 통과 시 DB에 회원 정보 저장, 로그인 화면 이동
 
 </details>
-
+<details><summary>개인페이지</summary><br>
 <details><summary>개인 페이지(서비스 바로가기)</summary>
 <img width="1500" height="779" alt="image" src="https://github.com/user-attachments/assets/864a0d42-8623-4022-a56e-07478a9b93ac" />
 
@@ -121,26 +121,57 @@
 
 </details>
 
-<details><summary>개인 페이지</summary>
+<details><summary>개인 페이지-> PT관리 -> 트레이너 정보</summary>
+<img width="3552" height="1377" alt="image" src="https://github.com/user-attachments/assets/5aaeebe1-50c3-49fe-aa6e-e6f8e226f9cd" />
 
-- 개인정보 조회, 수정, 삭제
-- 이메일 수정 시 member DB 조회 -> 이메일 중복 확인
-- 이메일 / 비밀번호 변경 시 로그인 화면 이동
+- 일반 회원이 PT관리 -> 내 예약내역 중 하나를 클릭할 시 해당 트레이너의 정보 조회 가능
   
 </details>
 
-<details><summary>관리자페이지</summary>
+<details><summary>개인 페이지-> PT관리 -> 트레이너 정보</summary>
+<img width="3417" height="1443" alt="image" src="https://github.com/user-attachments/assets/93889f45-7c35-4e82-98cc-6678f637e94f" />
 
-- 페이지 접근 시 관리자 권한 없으면 Index페이지로 이동(접근제한)
-- 관리자 페이지에 필요한 데이터 전부 미리 불러옴 -> 각 기능 담당자의 slice에서 호출, 데이터를 저장
-- 리스트 체크 후 선택 삭제(회원,물품,지점관리) D
-- 상세보기 -> 정보 수정, 삭제(회원, 물품) R, U, D
-- 이메일정보 수정 시 memberDB 조회 -> 이메일 중복 체크(회원)
-- 물품의 이름 정보 수정 시 itemsDB 조회 -> 이름 중복 체크(물품)
-- 물품 추가 시 items DB 조회 -> 상품 이름 중복 체크 후 물품 추가(물품추가) C
-- 주문관리쪽만 필터링 2개로 분류(주문상태, 배송방법)
-- 주문상품(수량) 클릭 -> 상세정보
+
+- 트레이너가 PT 예역관리 -> PT 수업관리 리스트 중 하나를 클릭할 시 해당 일반 회원의 정보 조회 가능
+  
+</details>
+<details><summary>개인 페이지(상세 프로필 정보)->개인정보 수정(공통)</summary>
+<img width="3325" height="1466" alt="image" src="https://github.com/user-attachments/assets/25517cd5-5b82-4cec-8ae4-5868b02ae9d1" />
+
+
+- 계정 상세정보 조회 가능
+- 계정 정보 수정 가능
+- 비밀번호 변경은 passwordEncoder를 이용했기에 수정 시 개별 변경 페이지 사용
+  
+</details>
+
+
+
 
 </details>
+<br>
+<details><summary>관리자페이지</summary><br>
+<details><summary>회원 관리 페이지</summary>
+<img width="3038" height="1497" alt="image" src="https://github.com/user-attachments/assets/7a43b29e-956e-40ef-9fe2-25235e6bcf38" />
+
+
+- 계정 상세정보 조회 가능
+- 계정 정보 수정 가능
+- 비밀번호 변경은 passwordEncoder를 이용했기에 수정 시 개별 변경 페이지 사용
+  
+</details>
+<details><summary>회원 관리 페이지</summary>
+<img width="3650" height="1442" alt="image" src="https://github.com/user-attachments/assets/ba779048-8d16-4b71-b23b-d73d96362000" />
+
+
+- 계정 상세정보 조회 가능
+- 계정 정보 수정 가능
+- 비밀번호 변경은 passwordEncoder를 이용했기에 수정 시 개별 변경 페이지 사용
+  
+</details>
+
+
+</details>
+<br>
 </details>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
