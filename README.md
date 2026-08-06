@@ -143,14 +143,12 @@
   
 </details>
 </details>
-<br>
 <details><summary>파일 공통화 작업</summary>
 <img width="3018" height="1413" alt="image" src="https://github.com/user-attachments/assets/43cd7b80-5511-4ade-b1dc-58d461e8be78" />
 
 - 파일 공통화는 처음 기획 단계에서 각자 파일 사용하는 DB를 쪼갰을 때 관리에 불편함이 있을 것 같다고 하여 하나로 통합 관리
 - 파일 공통화를 하면서 동일한 로직들은 하나의 함수로 사용 가능하게 설정
 </details>
-<br>
 <details><summary>챗봇</summary>
 <img width="2739" height="1509" alt="image" src="https://github.com/user-attachments/assets/cb6e37be-d0af-4976-84c2-13f4ba1d7c6d" />
   
@@ -158,7 +156,6 @@
 - 질문이 챗봇 관리 페이지에 등록된 질문일 시 답변예약어 리스트를 보여줌
 - 질문과 답변을 동시에 하면 그 답변예약어의 답변을 출력함
 </details>
-<br>
 <details><summary>관리자페이지</summary><br>
 <details><summary>회원 관리 페이지</summary>
 <img width="3038" height="1497" alt="image" src="https://github.com/user-attachments/assets/7a43b29e-956e-40ef-9fe2-25235e6bcf38" />
