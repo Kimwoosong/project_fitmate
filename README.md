@@ -26,7 +26,7 @@
 
 <details>
 <summary><h2>사용한 기술 스택 & 개발 툴 & API</h2></summary>
-<img width="3091" height="1458" alt="image" src="https://github.com/user-attachments/assets/b28bfa3b-d176-4986-ad85-2991baa803fb" />
+<img width="3035" height="1458" alt="image" src="https://github.com/user-attachments/assets/fdf0da97-5de6-4f32-9ade-765b60d66b90" />
 </details>
 
 ## 프로젝트 팀 내 역할
